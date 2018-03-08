@@ -182,7 +182,7 @@ cline random_cline() {
 }
 
 int main() {
-    size_t const population_size = 50;
+    size_t const population_size = 500;
 
     size_t npoints;
     std::cin >> npoints;
@@ -245,6 +245,7 @@ int main() {
         // Selection
         std::vector<std::pair<cline, double>> new_lines;
         std::uniform_real_distribution<> random_selection(0.0, fitness_sum);
+        /* new_lines.emplace_back(std::make_pair(best_line, history_entry.max)); */
         while (new_lines.size() < population_size) {
             auto selection = random_selection(random_engine);
             size_t selected_id = 0;

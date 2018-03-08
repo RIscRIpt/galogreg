@@ -1,11 +1,14 @@
-all: find_line gen_points plot
+all: gen_points.elf find_line.elf plot.elf plot_stats.elf
 
-find_line: main.cpp
-	$(CXX) $^ -o $@.elf
+find_line.elf: main.cpp
+	$(CXX) $^ -o $@
 
-gen_points: gen_points.cpp
-	$(CXX) $^ -o $@.elf
+gen_points.elf: gen_points.cpp
+	$(CXX) $^ -o $@
 
-plot: plot.cpp
-	$(CXX) $^ -lGL -lGLU -lglut -o $@.elf
+plot.elf: plot.cpp
+	$(CXX) $^ -lGL -lGLU -lglut -o $@
+
+plot_stats.elf: plot_stats.cpp
+	$(CXX) $^ -lGL -lGLU -lglut -o $@
 
